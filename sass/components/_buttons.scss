@@ -11,12 +11,16 @@
     transition: all 0.2s;
     position: relative;
     font-size: $default-font-size;
+    outline: none;
+    border: none;
   }
+
   &:hover {
     transform: translateY(-0.3rem);
     box-shadow: 0 1rem 2rem rgba(color(black),0.2);
   }
-  &:active {
+  &:active,
+  &:focus {
     transform: translateY(-0.1rem);
     box-shadow: 0 0.5rem 1rem rgba(color(black),0.2);
   }
@@ -29,6 +33,13 @@
     }
   }
   
+  &--primary {
+    background-color: color(primary);
+    color: color(white);
+    &:after {
+      background-color: color(primary);
+    }
+  }
   &:after {
     content: "";
     display: inline-block;
@@ -80,3 +91,4 @@
     transform: translateY(0);
   }
 }
+
