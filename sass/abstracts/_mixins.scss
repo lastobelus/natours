@@ -26,8 +26,8 @@
 1800px+:            Tablet portrait
 
 $breakpoint argument choices:
-  - tab-landscape
-  - tab-portrait
+  - tablet-landscape
+  - tablet-portrait
   - phone
   - big-desktop
 
@@ -40,12 +40,12 @@ ORDER: Base + typography > general layout + grid > page layout > component
       @content; // @content passes in the content when mixin is included with  a block
     }
   }
-  @if $breakpoint == tab-portrait {
+  @if $breakpoint == tablet-portrait {
     @media (max-width: (900em / 16)) {
       @content;
     }
   }
-  @if $breakpoint == tab-landscape {
+  @if $breakpoint == tablet-landscape {
     @media (max-width: (1200em / 16)) {
       @content;
     }

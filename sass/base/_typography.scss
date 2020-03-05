@@ -57,7 +57,7 @@ body {
     letter-spacing: 0.2rem;
     transition: all 0.2s;
 
-    @include respond(tab-portrait) {
+    @include respond(tablet-portrait) {
       font-size: 3rem;
     }
 
