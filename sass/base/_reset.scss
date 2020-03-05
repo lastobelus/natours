@@ -10,6 +10,8 @@ html {
   /* default browser font-size is 16px, we want 10px */
   font-size: 62.5%; // 1rm = 10px; 10px/16px = 62.5%
 
+  box-sizing: border-box;
+
   @include respond(tablet-landscape) {
     font-size: 56.25%; // 1 rem = 9px; 9/16
   }
