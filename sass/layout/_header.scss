@@ -1,5 +1,6 @@
 .header {
   height: 95vh;
+  max-height: 100vw;
   background-image: linear-gradient(
       to right bottom,
       rgba(color(primary-light), 0.8),
@@ -8,19 +9,9 @@
     url("../img/hero.jpg");
   background-position: top;
   background-size: cover;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
   position: relative;
-
-  @include respond(tablet-portrait) {
-    clip-path: polygon(0 0, 100% 0, 100% 78vh, 0 100%);
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 78vh, 0 100%);
-  }
-
-  @include respond(phone) {
-    clip-path: polygon(0 0, 100% 0, 100% 84vh, 0 100%);
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 84vh, 0 100%);
-  }
 
   &__logo-box {
     position: absolute;

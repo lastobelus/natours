@@ -1,15 +1,14 @@
 .section-about {
   background-color: color(grey-light-1);
-  padding: 25rem 0;
-  margin-top: -20vh;
-
-  @include respond(tablet-portrait) {
-    padding: 22rem 0;
-  }
+  padding-top: calc(2vw + 25rem);
+  padding-bottom: calc(12vw + 10rem);
+  margin-top: calc(-2vw - 20rem);
 }
 
 .section-features {
-  padding: 20rem 0;
+  padding-top: calc(8vw + 6rem);
+  padding-bottom: calc(8vw + 6rem);
+  margin-top: calc(5vw - 16rem);
   background-image: linear-gradient(
       to right bottom,
       rgba(color(primary-light), 0.8),
@@ -19,20 +18,20 @@
   background-position: top;
   background-size: cover;
   transform: skewY(-7deg);
-  margin-top: -10rem;
 
   & > * {
     transform: skewY(7deg);
   }
   @include respond(tablet-portrait) {
-    padding: 10rem 0;
+    padding-bottom: calc(8vw);
   }
 }
 
 .section-tours {
   background-color: color(grey-light-1);
-  padding: 25rem 0 15rem 0;
-  margin-top: -20vh;
+  padding-top: calc(16vw + 4rem);
+  padding-bottom: calc(8vw + 6rem);
+  margin-top: calc(-8vw - 1rem);
 }
 
 .section-stories {
