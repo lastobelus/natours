@@ -8,7 +8,7 @@
     font-family: inherit;
     color: inherit;
     padding: 1.5rem 2rem;
-    border-radius: .2rem;
+    border-radius: 0.2rem;
     border: none;
     background-color: rgba(color(white), 0.5);
     border-bottom: 0.3rem solid transparent;
@@ -20,7 +20,7 @@
 
     &:focus {
       outline: none;
-      box-shadow: 0 1rem 2rem rgba(color(black), .1);
+      box-shadow: 0 1rem 2rem rgba(color(black), 0.1);
       border-color: color(primary);
     }
     &:focus:invalid {
@@ -28,7 +28,7 @@
     }
 
     &::webkit-input-placeholder {
-      color: color(grey-dark-3)
+      color: color(grey-dark-3);
     }
   }
 
@@ -36,9 +36,9 @@
     font-size: 1.2rem;
     font-weight: 700;
     margin-left: 2rem;
-    margin-top: .7rem;
+    margin-top: 0.7rem;
     display: block;
-    transition: all .3s;
+    transition: all 0.3s;
     position: relative;
     z-index: 10;
   }
@@ -72,20 +72,17 @@
     border-radius: 50%;
     display: inline-block;
     position: absolute;
-    top: -.4rem;
+    top: -0.4rem;
     left: 0;
     &:after {
       content: "";
       display: block;
       height: 1.3rem;
       width: 1.3rem;
+      @include absoluteCenter;
       border-radius: 50%;
       background-color: color(primary);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      transition: opacity .2s;
+      transition: opacity 0.2s;
       opacity: 0;
     }
   }

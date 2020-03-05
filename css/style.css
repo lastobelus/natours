@@ -1,3 +1,18 @@
+/*
+0-600px:       Phone
+600px-900px:        Tablet portrait
+900px-1200px:       Tablet landscape
+[1200px - 1800px]:  (normal styles apply)
+1800px+:            Tablet portrait
+
+$breakpoint argument choices:
+  - tab-landscape
+  - tab-portrait
+  - phone
+  - big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > component
+*/
 *,
 *::before,
 *::after {
@@ -8,9 +23,24 @@
 html {
   /* default browser font-size is 16px, we want 10px */
   font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 37.5em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
-  box-sizing: border-box; }
+  padding: 3rem; }
+  @media (max-width: 56.25em) {
+    body {
+      padding: 0; } }
 
 body {
   font-family: "Lato", sans-serif;
@@ -21,7 +51,8 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
-  backface-visibility: hidden; }
+  backface-visibility: hidden;
+  margin-bottom: 6rem; }
   .heading-primary--main {
     display: block;
     font-size: 6rem;
@@ -34,6 +65,10 @@ body {
       animation-delay: 3s;
       animation-iteration-count: 3; 
       */ }
+    @media (max-width: 37.5em) {
+      .heading-primary--main {
+        letter-spacing: 1rem;
+        font-size: 5rem; } }
   .heading-primary--sub {
     display: block;
     font-size: 2rem;
@@ -41,6 +76,9 @@ body {
     font-weight: 700;
     animation: moveInRight 0.8s ease-in;
     margin-bottom: 6rem; }
+    @media (max-width: 37.5em) {
+      .heading-primary--sub {
+        letter-spacing: 0.5rem; } }
 
 .heading-secondary {
   font-size: 3.5rem;
@@ -52,7 +90,13 @@ body {
   background-clip: text;
   color: transparent;
   letter-spacing: 0.2rem;
-  transition: all .2s; }
+  transition: all 0.2s; }
+  @media (max-width: 56.25em) {
+    .heading-secondary {
+      font-size: 3rem; } }
+  @media (max-width: 37.5em) {
+    .heading-secondary {
+      font-size: 2.5rem; } }
   .heading-secondary:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
@@ -121,6 +165,9 @@ body {
 
 .u-flex {
   display: flex !important; }
+  @media (max-width: 56.25em) {
+    .u-flex {
+      flex-direction: column; } }
 
 .navigation__checkbox {
   display: none; }
@@ -210,11 +257,11 @@ body {
     content: "";
     position: absolute;
     left: 0;
-    transition: all .2s; }
+    transition: all 0.2s; }
   .navigation__icon:before {
-    top: -.8rem; }
+    top: -0.8rem; }
   .navigation__icon:after {
-    top: .8rem; }
+    top: 0.8rem; }
 
 .navigation__button:hover .navigation__icon:before {
   top: -1rem; }
@@ -233,14 +280,14 @@ body {
   top: 0;
   transform: rotate(-135deg); }
 
-body {
-  padding: 3rem; }
-
 .row {
   max-width: 114rem;
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
+    @media (max-width: 56.25em) {
+      .row:not(:last-child) {
+        margin-bottom: 6rem; } }
   .row:after {
     content: "";
     display: table;
@@ -249,18 +296,21 @@ body {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
+    @media (max-width: 56.25em) {
+      .row [class^="col-"] {
+        width: 100% !important; } }
   .row .col-1-of-2 {
     width: calc((100% - 6rem) / 2); }
   .row .col-1-of-3 {
     width: calc((100% - 2 * 6rem) / 3); }
   .row .col-2-of-3 {
-    width: calc(2 * ((100% - 2 * 6rem) / 3) + 6rem); }
+    width: calc( 2 * ((100% - 2 * 6rem) / 3) + 6rem); }
   .row .col-1-of-4 {
     width: calc((100% - 3 * 6rem) / 4); }
   .row .col-2-of-4 {
-    width: calc(2 * ((100% - 3 * 6rem) / 4) + 6rem); }
+    width: calc( 2 * ((100% - 3 * 6rem) / 4) + 6rem); }
   .row .col-3-of-4 {
-    width: calc(3 * ((100% - 3 * 6rem) / 4) + (2 *6rem)); }
+    width: calc( 3 * ((100% - 3 * 6rem) / 4) + (2 *6rem)); }
 
 .header {
   height: 95vh;
@@ -485,11 +535,7 @@ body {
         .card__details ul li:not(:last-child) {
           border-bottom: solid 0.1rem #eee; }
   .card__cta {
-    position: absolute;
-    top: 50%;
-    left: 50%;
     width: 90%;
-    transform: translate(-50%, -50%);
     text-align: center; }
   .card__price-box {
     color: #fff;
@@ -557,7 +603,7 @@ body {
   font-family: inherit;
   color: inherit;
   padding: 1.5rem 2rem;
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   border: none;
   background-color: rgba(255, 255, 255, 0.5);
   border-bottom: 0.3rem solid transparent;
@@ -579,9 +625,9 @@ body {
   font-size: 1.2rem;
   font-weight: 700;
   margin-left: 2rem;
-  margin-top: .7rem;
+  margin-top: 0.7rem;
   display: block;
-  transition: all .3s;
+  transition: all 0.3s;
   position: relative;
   z-index: 10; }
 
@@ -610,20 +656,20 @@ body {
   border-radius: 50%;
   display: inline-block;
   position: absolute;
-  top: -.4rem;
+  top: -0.4rem;
   left: 0; }
   .form__radio-button:after {
     content: "";
     display: block;
     height: 1.3rem;
     width: 1.3rem;
-    border-radius: 50%;
-    background-color: #55c57a;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: opacity .2s;
+    border-radius: 50%;
+    background-color: #55c57a;
+    transition: opacity 0.2s;
     opacity: 0; }
 
 .form__input-radio:checked ~ .form__label-radio .form__radio-button:after {
@@ -639,7 +685,7 @@ body {
   height: 100vh;
   opacity: 0;
   visibility: hidden;
-  transition: all .3s; }
+  transition: all 0.3s; }
   .popup__content {
     position: absolute;
     top: 50%;
@@ -652,7 +698,7 @@ body {
     display: table;
     overflow: hidden;
     opacity: 0;
-    transition: all .4s .2s; }
+    transition: all 0.4s 0.2s; }
   .popup__left {
     width: 33.333333%;
     display: table-cell;

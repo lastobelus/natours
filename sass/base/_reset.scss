@@ -8,9 +8,25 @@
 
 html {
   /* default browser font-size is 16px, we want 10px */
-  font-size: 62.5%; 
+  font-size: 62.5%; // 1rm = 10px; 10px/16px = 62.5%
+
+  @include respond(tab-landscape) {
+    font-size: 56.25%; // 1 rem = 9px; 9/16
+  }
+  @include respond(tab-portrait) {
+    font-size: 50%; // 1rem = 8px; 8/16
+  }
+  @include respond(phone) {
+    font-size: 50%; // 1rem = 8px; 8/16
+  }
+  @include respond(big-desktop) {
+    font-size: 75%; // 1rem = 12; 12/16
+  }
 }
 
 body {
-  box-sizing: border-box;
+  padding: 3rem;
+  @include respond(tab-portrait) {
+    padding: 0;
+  }
 }

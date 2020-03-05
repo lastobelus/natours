@@ -5,3 +5,54 @@
     clear: both;
   }
 }
+
+// adding a variable allows us to use this in styles that need other transforms
+// (because transform directives overwrite rather than merging, so you can't have more than one in a style)
+// using null is the best way to emit nothing if the variable is not set. Be aware, null doesn't coerce to
+// anything in math, so will be an error if used with math
+@mixin absoluteCenter($transforms: null, $x: -50%, $y: -50%) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate($x, $y) $transforms;
+}
+
+// Media Query Manager
+/*
+0-600px:       Phone
+600px-900px:        Tablet portrait
+900px-1200px:       Tablet landscape
+[1200px - 1800px]:  (normal styles apply)
+1800px+:            Tablet portrait
+
+$breakpoint argument choices:
+  - tab-landscape
+  - tab-portrait
+  - phone
+  - big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > component
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: (600em / 16)) {
+      @content; // @content passes in the content when mixin is included with  a block
+    }
+  }
+  @if $breakpoint == tab-portrait {
+    @media (max-width: (900em / 16)) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-landscape {
+    @media (max-width: (1200em / 16)) {
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: (1800em / 16)) {
+      @content;
+    }
+  }
+}

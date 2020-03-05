@@ -32,4 +32,7 @@
 
 .u-flex {
   display: flex !important;
+  @include respond(tab-portrait) {
+    flex-direction: column;
+  }
 }
